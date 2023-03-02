@@ -1,3 +1,11 @@
+:root {
+  --fonticon-background-color: white;
+  --fonticon-border-color: #ff3860;
+  --fonticon-text-color: #ff3860;
+  --fonticon-icons-background-color: #3273dc;
+  --fonticon-icons-text-color: white;
+}
+
 * {
   font-family: 'Raleway', sans-serif;
   margin: 0;
@@ -27,8 +35,8 @@ body {
   width: 50vw;
   height: 100vh;
   overflow: auto;
-  color: white;
-  background: #3273dc;
+  color: var(--fonticon-icons-text-color);
+  background: var(--fonticon-icons-background-color);
 }
 
 #controls_container {
@@ -36,7 +44,6 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 30vw;
   max-width: 500px;
   flex-grow: 1;
 }
@@ -105,11 +112,11 @@ body {
 
 #download,
 #file_format {
-  background-color: #ff3860;
+  background-color: var(--fonticon-border-color);
   font-size: 14px;
   height: 30px;
-  border: 1px solid #ff3860;
-  color: white;
+  border: 1px solid var(--fonticon-border-color);
+  color: var(--fonticon-background-color);
   padding: 0;
   text-align: center;
   line-height: 30px;
@@ -134,8 +141,8 @@ body {
 #download:active,
 #download.loading {
   background-color: white;
-  color: #ff3860;
-  border-right-color: #ff3860;
+  color: var(--fonticon-text-color);
+  border-right-color: var(--fonticon-border-color);
 }
 
 #download.loading {
@@ -190,60 +197,56 @@ input {
   outline: none;
   padding: 5px 0 5px 10px;
   background: 0 0;
-  color: #ff3860;
-  border: 1px solid #ff3860;
+  color: var(--fonticon-text-color);
+  border: 1px solid var(--fonticon-border-color);
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
 input:focus {
-  box-shadow: 0 0 7px #ff3860;
+  box-shadow: 0 0 7px var(--fonticon-border-color);
 }
 
-#size,
+#icon_size,
 #stacked_size {
   padding-left: 0;
   border: none;
   color: white;
 }
 
-#size:focus,
+#icon_size:focus,
 #stacked_size:focus {
   box-shadow: none;
 }
 
 *::-webkit-input-placeholder {
-  color: #ff3860;
+  color: var(--fonticon-text-color);
   opacity: 0.5;
 }
 
 *:-moz-placeholder {
-  color: #ff3860;
+  color: var(--fonticon-text-color);
   opacity: 0.5;
 }
 
 *::-moz-placeholder {
-  color: #ff3860;
+  color: var(--fonticon-text-color);
   opacity: 0.5;
 }
 
 *:-ms-input-placeholder {
-  color: #ff3860;
+  color: var(--fonticon-text-color);
   opacity: 0.5;
 }
 
-#colors {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  flex-wrap: wrap;
+.legend {
+  font-size: small;
+  text-align: start;
 }
-
 .color_input {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 47%;
   min-width: 150px;
 }
 
@@ -253,7 +256,7 @@ input:focus {
   height: 30px;
   flex-shrink: 0;
   border-radius: 5px 0 0 5px;
-  border: 1px solid #ff3860;
+  border: 1px solid var(--fonticon-border-color);
 }
 
 .color_button_container {
@@ -276,21 +279,13 @@ input:focus {
   width: calc(100% - 30px);
 }
 
-#color {
-  background-color: white;
-}
-
-#background_color {
-  background-color: #ff3860;
-}
-
 .footer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  color: #ff3860;
+  color: var(--fonticon-text-color);
   text-decoration: none;
   font-size: 14px;
 }
@@ -302,21 +297,47 @@ input:focus {
 }
 
 .footer:visited {
-  color: #ff3860;
+  color: var(--fonticon-text-color);
 }
 
 .stack_container {
   width: 100%;
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
-  height: 30px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox'] + label {
+  margin-bottom: 10px;
+}
+
+input[type='checkbox'] + label:before {
+  font-family: 'Font Awesome 5 Free';
+  font-size: small;
+  content: '\f0c8';
+  color: var(--fonticon-text-color);
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + label:before {
+  content: '\f14a';
+}
+
+#stacked_settings {
+  display: none;
+  padding: 10px;
+  margin: 0.25em 0 0.5em;
+  border-radius: 5px;
+  border: 1px solid var(--fonticon-border-color);
 }
 
 #stack_input {
   display: flex;
   align-items: center;
-  color: #ff3860;
+  color: var(--fonticon-text-color);
 }
 
 #stack_input div {
@@ -337,7 +358,6 @@ input:focus {
 }
 
 #stacked_size {
-  display: none;
   margin-bottom: 0;
 }
 

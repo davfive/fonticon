@@ -35,22 +35,43 @@ function setFont(icon, size) {
   ctx.font = fontWeight + ' ' + (icon.si * size) / 100 + 'px "Font Awesome 5 ' + fontSuffix + '"';
 }
 
+function drawIcon(ctx, icon, iconSize, iconColor) {
+  if (canvasSize > 0) {
+    setFont(icon, iconSize);
+    ctx.globalCompositeOperation = iconColor ? 'destination-out' : 'xor';
+    ctx.fillText(icon.uc, canvasSize / 2, canvasSize / 2);
+    if (iconColor) {
+      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+      ctx.fillStyle = iconColor;
+    }
+  }
+}
+
 function draw() {
   if (canvasSize > 0) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Set Background Color
     ctx.fillStyle = s.backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    setFont(s.icon, s.size);
+    setFont(s.icon, s.iconSize);
+
+    // Set Primary Icon
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.globalCompositeOperation = 'destination-out';
     ctx.fillText(s.icon.uc, canvasSize / 2, canvasSize / 2);
-    ctx.fillStyle = s.foregroundColor;
+
+    ctx.fillStyle = s.iconColor;
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillText(s.icon.uc, canvasSize / 2, canvasSize / 2);
-    if (s.stackedSelected) {
+
+    if (s.useStackedIcon) {
       ctx.save();
       setFont(s.stackedIcon, s.stackedSize);
-      ctx.globalCompositeOperation = 'xor';
+      ctx.globalCompositeOperation = s.useStackedColor ? 'source-over' : 'xor';
+      if (s.useStackedColor) {
+        ctx.fillStyle = s.stackedColor;
+      }
       ctx.fillText(s.stackedIcon.uc, canvasSize / 2, canvasSize / 2);
       ctx.restore();
     }

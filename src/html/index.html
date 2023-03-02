@@ -15,27 +15,43 @@
     <div id="left">
       <div id="controls_container">
         <canvas id="canvas"></canvas>
-        <div id="colors">
-          <div class="color_input">
-            <div class="color_button_container">
-              <div id="color" class="color_button"></div>
+        <div class="settings_container">
+          <div id="background_settings" class="colors">
+            <div class="legend">Background Color</div>
+            <div class="color_input">
+              <div class="color_button_container">
+                <div id="background_color" class="color_button"></div>
+              </div>
+              <input id="background_color_text" class="color_text" type="text" />
             </div>
-            <input id="color_text" class="color_text" type="text" />
           </div>
-          <div class="color_input">
-            <div class="color_button_container">
-              <div id="background_color" class="color_button"></div>
+          <div id="icon_settings" class="colors">
+            <div class="legend">Icon Color</div>
+            <div class="color_input">
+              <div class="color_button_container">
+                <div id="icon_color" class="color_button"></div>
+              </div>
+              <input id="icon_color_text" class="color_text" type="text" />
             </div>
-            <input id="background_color_text" class="color_text" type="text" />
+            <div class="legend">Icon Size</div>
+            <input id="icon_size" type="range" min="10" max="100" step="1" data-orientation="horizontal" />
           </div>
-        </div>
-        <input id="size" type="range" min="10" max="100" step="1" data-orientation="horizontal" />
-        <div class="stack_container">
-          <div id="stack_input">
-            <i id="stacked" class="far fa-square"></i>
-            <div>Stacked</div>
+          <input type="checkbox" id="use_stacked_icon" name="use_stacked_icon" />
+          <label for="use_stacked_icon" class="legend"> Stacked</label>
+          <div id="stacked_settings" class="colors">
+            <div>
+              <input type="checkbox" id="use_stacked_color" name="use_stacked_color" checked />
+              <label for="use_stacked_color" class="legend"> Icon Color</label>
+              <div class="color_input">
+                <div class="color_button_container">
+                  <div id="stacked_color" class="color_button"></div>
+                </div>
+                <input id="stacked_color_text" class="color_text" type="text" />
+              </div>
+            </div>
+            <div class="legend">Icon Size</div>
+            <input id="stacked_size" type="range" min="10" max="100" step="1" data-orientation="horizontal" />
           </div>
-          <input id="stacked_size" type="range" min="10" max="100" step="1" data-orientation="horizontal" />
         </div>
         <input id="search" type="text" name="search" autocomplete="off" placeholder="Search..." />
         <div id="download_container">

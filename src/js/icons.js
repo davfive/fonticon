@@ -29,11 +29,12 @@ function initIcons(state, enablePro) {
 
   function iconClicked() {
     const icon = icons[$(this).data('ix')];
-    if (!state.stackedSelected) {
-      state.icon = icon;
-    } else {
+    if (state.useStackedIcon) {
       state.stackedIcon = icon;
+    } else {
+      state.icon = icon;
     }
+
     draw();
   }
 

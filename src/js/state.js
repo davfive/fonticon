@@ -11,13 +11,15 @@ const heart_icon = icons.find(icon => {
 });
 
 const s = {
-  foregroundColor: '#345334',
-  backgroundColor: '#345334',
-  size: 85,
-  stackedSize: 60,
+  backgroundColor: 'rgba(255, 255, 255, 0)',
   icon: heart_icon,
+  iconColor: 'rgba(255, 56, 96, 1)',
+  iconSize: 85,
   stackedIcon: heart_icon,
-  stackedSelected: false,
+  stackedColor: 'rgba(83, 56, 255, 1)',
+  stackedSize: 60,
+  useStackedIcon: false,
+  useStackedColor: true,
 };
 
 function initState() {
